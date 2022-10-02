@@ -1,9 +1,5 @@
 <template>
   <div>
-    <Logo />
-    <ExtraLinks />
-    <DebugButton />
-
     <Loader />
 
     <Nuxt style="position: relative; z-index: 1" />

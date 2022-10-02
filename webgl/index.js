@@ -8,6 +8,7 @@ import Renderer from './Renderer.js'
 import Camera from './Camera.js'
 import Raf from './Utils/Raf.js'
 import EventEmitter from './Utils/EventEmitter.js'
+import MainScene from './Scenes/MainScene.js'
 
 export default class WebGL extends EventEmitter {
   static instance
@@ -34,6 +35,8 @@ export default class WebGL extends EventEmitter {
       this.resize()
     })
 
+    this.initScene()
+
     this.raf.suscribe('webgl', this.update.bind(this))
 
     this.started = true
@@ -52,6 +55,10 @@ export default class WebGL extends EventEmitter {
 
   setScene() {
     this.scene = new THREE.Scene()
+  }
+
+  initScene() {
+    this.mainScene = new MainScene()
   }
 
   setCamera() {
